@@ -22,8 +22,9 @@ impl ActnumProperty {
     pub fn new( data: Box<[bool]> ) -> Self {
         Self { data: Some(data) }
     }
-    pub fn from_file( _file_name: &str ) -> Result<Self> {
-        todo!();
+    pub fn from_file( file_name: &str, size: usize ) -> Result<Self> {
+        let data = io3d::load_actnum( file_name, size )?;
+        Ok( Self{ data: Some(data) } )
     }
 }
 
