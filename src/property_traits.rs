@@ -1,14 +1,9 @@
-use crate::{Continuous, Discrete};
+//use crate::{Continuous, Discrete};
 
 
 
 
 
-pub trait IsDefined {
-    fn is_defined(&self, index: usize) -> bool {
-        false
-    }
-}
 pub trait DiscreteProperty {
     fn disc_value(&mut self, index: usize) -> &Option<Discrete>;
 }
