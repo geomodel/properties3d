@@ -1,11 +1,17 @@
+use anyhow::Result;
 
+use crate::property_trait::IProperty;
 
 //  //  //  //  //  //  //  //
-pub struct Property<T> {
+pub struct Property<T>
+where
+    T: std::str::FromStr,
+{
     data: Box<[Option<T>]>,
 }
 
-impl<T> Property<T> {
+impl<T: std::str::FromStr>
+Property<T> {
     pub fn new( size: usize ) -> Self {
         let mut v = Vec::<Option<T>>::with_capacity(size);
         for _ in 0..size {
@@ -16,16 +22,34 @@ impl<T> Property<T> {
     pub fn from_data( data: Box<[Option<T>]> ) -> Self {
         Self { data }
     }
+    pub fn from_file( file_name: &str, size: usize ) -> Result<Self> {
+        let data = io3d::load_property( file_name, size )?;
+        Ok( Self{ data } )
+    }
 }
 
-impl<T> std::ops::Index<usize> for Property<T> {
+impl<T: std::str::FromStr>
+IProperty for Property<T> {
+    type Value = Option<T>;
+
+    fn array(&self) -> &Box<[Self::Value]> {
+        &self.data
+    }
+    fn array_mut(&mut self) -> &mut Box<[Self::Value]> {
+        &mut self.data
+    }
+}
+
+impl<T: std::str::FromStr>
+std::ops::Index<usize> for Property<T> {
     type Output = Option<T>;
 
     fn index(&self, i: usize) -> &Self::Output {
         &self.data[i]
     }
 }
-impl<T> std::ops::IndexMut<usize> for Property<T> {
+impl<T: std::str::FromStr>
+std::ops::IndexMut<usize> for Property<T> {
     fn index_mut(&mut self, i: usize) -> &mut Self::Output {
         &mut self.data[i]
     }

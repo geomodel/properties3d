@@ -1,5 +1,7 @@
 use anyhow::Result;
 
+use crate::property_trait::IProperty;
+
 
 //  //  //  //  //  //  //  //
 pub struct ActnumProperty {
@@ -13,6 +15,17 @@ impl ActnumProperty {
     pub fn from_file( file_name: &str, size: usize ) -> Result<Self> {
         let data = io3d::load_actnum( file_name, size )?;
         Ok( Self{ data } )
+    }
+}
+
+impl IProperty for ActnumProperty {
+    type Value = bool;
+
+    fn array(&self) -> &Box<[Self::Value]> {
+        &self.data
+    }
+    fn array_mut(&mut self) -> &mut Box<[Self::Value]> {
+        &mut self.data
     }
 }
 
