@@ -8,6 +8,8 @@ mod types;
 //  //  //  //  //  //  //  //
 //use anyhow::Result;
 
+pub use types::*;
+pub use property_of_type::*;
 
 /*
 use property_actnum::*;

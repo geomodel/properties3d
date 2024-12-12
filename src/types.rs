@@ -1,7 +1,7 @@
-type Continuous = f64;
-type Discrete = i16;
+pub type Continuous = f64;
+pub type Discrete = i16;
 
-#[derive(Debug, PartialEq, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy, Eq, Hash)]
 pub struct IJK {
     pub i: usize,
     pub j: usize,
@@ -24,5 +24,18 @@ impl GridConstraints {
             ij_max,
             number: ij_max*k_max,
         }
+    }
+
+    pub fn get_i_max(&self) -> usize {
+        self.i_max
+    }
+    pub fn get_j_max(&self) -> usize {
+        self.j_max
+    }
+    pub fn get_k_max(&self) -> usize {
+        self.k_max
+    }
+    pub fn get_number(&self) -> usize {
+        self.number
     }
 }

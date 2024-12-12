@@ -5,12 +5,12 @@ use crate::property_trait::IProperty;
 //  //  //  //  //  //  //  //
 pub struct Property<T>
 where
-    T: std::str::FromStr,
+    T: std::str::FromStr + std::fmt::Display,
 {
     data: Box<[Option<T>]>,
 }
 
-impl<T: std::str::FromStr>
+impl<T: std::str::FromStr + std::fmt::Display>
 Property<T> {
     pub fn new( size: usize ) -> Self {
         let mut v = Vec::<Option<T>>::with_capacity(size);
@@ -26,9 +26,13 @@ Property<T> {
         let data = io3d::load_property( file_name, size )?;
         Ok( Self{ data } )
     }
+    pub fn save_to_file(&self, file_name: &str ) -> Result<()> {
+        io3d::save_property( file_name, &self.data )?;
+        Ok(())
+    }
 }
 
-impl<T: std::str::FromStr>
+impl<T: std::str::FromStr + std::fmt::Display>
 IProperty for Property<T> {
     type Value = Option<T>;
 
@@ -40,7 +44,7 @@ IProperty for Property<T> {
     }
 }
 
-impl<T: std::str::FromStr>
+impl<T: std::str::FromStr + std::fmt::Display>
 std::ops::Index<usize> for Property<T> {
     type Output = Option<T>;
 
@@ -48,7 +52,7 @@ std::ops::Index<usize> for Property<T> {
         &self.data[i]
     }
 }
-impl<T: std::str::FromStr>
+impl<T: std::str::FromStr + std::fmt::Display>
 std::ops::IndexMut<usize> for Property<T> {
     fn index_mut(&mut self, i: usize) -> &mut Self::Output {
         &mut self.data[i]
