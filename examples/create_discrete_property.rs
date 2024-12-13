@@ -2,7 +2,7 @@ use anyhow::Result;
 use properties3d::*;
 
 fn main() -> Result<()> {
-    let grid = GridConstraints::new(2,2,2);
+    let grid = Grid::new(2,2,2);
 
     let src_file_name = r#"../../properties3d/assets/ijk.ascii"#;
     println!("loading 1..");

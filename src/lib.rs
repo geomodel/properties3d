@@ -2,13 +2,14 @@ mod property_trait;
 mod property_of_type;
 mod property_actnum;
 
-mod index3d;
+mod grid;
 mod types;
 
 //  //  //  //  //  //  //  //
 //use anyhow::Result;
 
 pub use types::*;
+pub use grid::*;
 pub use property_of_type::*;
 
 /*
