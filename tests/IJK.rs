@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-use properties3d::*;
+//use properties3d::*;
 
 #[test]
 fn printer() -> Result<()> {

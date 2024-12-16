@@ -10,17 +10,9 @@ fn main() -> Result<()> {
     println!("loading 2..");
     let property2 = Property::<Continuous>::from_file(src_file_name, 8)?;
 
-    /*
-    let bw_file_name = r#"d:\raaDir\ForUserDefined\exchange\bw.ascii"#;
-    let _bw1 = load_discrete_bw(bw_file_name)?;
-    let _bw2 = load_continuous_bw(bw_file_name)?;
-
-    for value in property.array().iter_mut() {
-        if let Some(v) = value {
-            *value = Some(*v + 5);
-        }
-    }
-    */
+    let bw_file_name = r#"../../properties3d/assets/upscaled_ijk.ascii"#;
+    println!("loading 3..");
+    let _bw = UpscdProperty::<Continuous>::from_file(bw_file_name)?;
 
     for index in 0..grid.get_number() {
         if let Some(v) = property[index] {
