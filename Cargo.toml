@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow.workspace = true
-io3d = { path = "../io3d" }
+anyhow = "1.0.93"
+io3d = { git = "https://github.com/geomodel/io3d.git" }
+
