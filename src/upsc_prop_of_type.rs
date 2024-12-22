@@ -27,6 +27,12 @@ impl<T: std::str::FromStr + Clone> UpscdProperty<T> {
         }
         None
     }
+    pub fn len(&self) -> usize {
+        self.data.len()
+    }
+    pub fn get_via_index(&self, index: usize) -> &(IJK, T) {
+        &self.data[index]
+    }
 }
 
 //  //  //  //  //  //  //  //
@@ -35,6 +41,18 @@ impl<T: std::str::FromStr + Clone> UpscdProperty<T> {
 #[cfg(test)]
 mod ups_property_of_type {
     use super::*;
+
+    #[test]
+    fn check_idex() {
+        let a = (IJK { i: 1, j: 1, k: 1 }, 111);
+        let b = (IJK { i: 2, j: 2, k: 2 }, 222);
+        let c = (IJK { i: 1, j: 2, k: 3 }, 123);
+        let data = [a, b, c];
+        let bw = UpscdProperty::from_data(Box::new(data));
+
+        assert!(bw.len() == data.len());
+        assert!(*bw.get_via_index(1) == b);
+    }
 
     #[test]
     fn create_new() {
