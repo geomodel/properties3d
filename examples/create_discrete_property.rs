@@ -14,7 +14,7 @@ fn main() -> Result<()> {
     println!("loading 3..");
     let _bw = UpscdProperty::<Continuous>::from_file(bw_file_name)?;
 
-    for index in 0..grid.get_number() {
+    for index in 0..grid.get_size() {
         if let Some(v) = property[index] {
             property[index] = Some(v + 5);
         }

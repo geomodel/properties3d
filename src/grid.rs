@@ -7,7 +7,7 @@ pub struct Grid {
     pub j_max: usize,
     pub k_max: usize,
     pub ij_max: usize,
-    pub number: usize,
+    pub size: usize,
 }
 
 impl Grid {
@@ -18,7 +18,7 @@ impl Grid {
             j_max,
             k_max,
             ij_max,
-            number: ij_max * k_max,
+            size: ij_max * k_max,
         }
     }
 
@@ -31,8 +31,8 @@ impl Grid {
     pub fn get_k_max(&self) -> usize {
         self.k_max
     }
-    pub fn get_number(&self) -> usize {
-        self.number
+    pub fn get_size(&self) -> usize {
+        self.size
     }
 }
 
@@ -55,7 +55,7 @@ impl Grid {
     }
 
     pub fn index_to_coord(&self, index: usize) -> Option<IJK> {
-        if index >= self.number {
+        if index >= self.size {
             return None;
         }
         let wo_k = index % self.ij_max;
