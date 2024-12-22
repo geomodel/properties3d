@@ -21,12 +21,12 @@ impl<T: std::str::FromStr + std::fmt::Display> Property<T> {
     pub fn from_data(data: Box<[Option<T>]>) -> Self {
         Self { data }
     }
-    pub fn from_file(file_name: &str, size: usize) -> Result<Self> {
-        let data = io3d::load_property(file_name, size)?;
+    pub fn from_file(file_name: &str, size: usize, udnef_value: &str) -> Result<Self> {
+        let data = io3d::load_property(file_name, size, udnef_value)?;
         Ok(Self { data })
     }
-    pub fn save_to_file(&self, file_name: &str) -> Result<()> {
-        io3d::save_property(file_name, &self.data)?;
+    pub fn save_to_file(&self, file_name: &str, udnef_value: &str) -> Result<()> {
+        io3d::save_property(file_name, &self.data, udnef_value)?;
         Ok(())
     }
 }
