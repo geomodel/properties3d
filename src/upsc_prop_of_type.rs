@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-use crate::types::IJK;
+use data_types::IJK;
 
 //  //  //  //  //  //  //  //
 pub struct UpscdProperty<T>
