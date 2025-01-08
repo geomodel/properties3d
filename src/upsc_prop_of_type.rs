@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-use io3d::data_types::IJK;
+use io3d::types3d::IJK;
 
 //  //  //  //  //  //  //  //
 pub struct UpscdProperty<T>

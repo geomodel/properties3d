@@ -1,4 +1,4 @@
-use io3d::data_types::*;
+use io3d::types3d::*;
 
 //  //  //  //  //  //  //  //
 #[derive(Debug, PartialEq, Clone, Copy)]

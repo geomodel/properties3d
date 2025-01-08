@@ -1,6 +1,6 @@
 use anyhow::{anyhow, Result};
 
-use io3d::data_types::*;
+use io3d::types3d::*;
 use crate::*;
 
 pub mod matching;
