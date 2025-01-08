@@ -1,4 +1,4 @@
-use data_types::*;
+use io3d::data_types::*;
 
 
 use super::LinkedProperty3D;

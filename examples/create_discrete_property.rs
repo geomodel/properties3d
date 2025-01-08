@@ -1,6 +1,6 @@
 use anyhow::Result;
 use properties3d::*;
-use data_types::*;
+use properties3d::data_types::*;
 
 static U: &str = "-999";
 

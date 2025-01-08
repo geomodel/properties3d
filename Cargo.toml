@@ -6,4 +6,4 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.93"
 io3d = { git = "https://github.com/geomodel/io3d.git" }
-data_types = { git = "https://github.com/geomodel/data_types.git" }
+#data_types = { git = "https://github.com/geomodel/data_types.git" }

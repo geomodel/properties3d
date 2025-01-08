@@ -7,6 +7,7 @@ mod linked_property3d;
 mod grid;
 
 //  //  //  //  //  //  //  //
+pub use io3d::data_types;
 pub use grid::*;
 pub use property_actnum::ActnumProperty;
 pub use property_of_type::*;
