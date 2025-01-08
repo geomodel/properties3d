@@ -6,8 +6,8 @@ use super::LinkedProperty3D;
 //  //  //  //  //  //  //  //
 #[derive(Debug, PartialEq)]
 pub struct Evaluation {
-    count: Continuous,
-    positive_count: Continuous,
+    pub count: Continuous,
+    pub positive_count: Continuous,
 }
 
 pub fn evaluate_for_discrete(
