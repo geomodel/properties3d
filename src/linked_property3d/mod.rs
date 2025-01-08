@@ -10,8 +10,8 @@ pub struct LinkedProperty3D<'a, T>
 where
     T: std::str::FromStr + std::fmt::Display,
 {
-    grid: &'a Grid,
-    data: Property<T>,
+    pub grid: &'a Grid,
+    pub data: Property<T>,
 }
 
 impl<T: std::str::FromStr + std::fmt::Display> LinkedProperty3D<'_, T> {
