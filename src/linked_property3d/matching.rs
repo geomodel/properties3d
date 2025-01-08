@@ -9,6 +9,11 @@ pub struct Evaluation {
     pub count: Continuous,
     pub positive_count: Continuous,
 }
+impl Evaluation {
+    pub fn w(&self) -> Continuous {
+        self.positive_count / self.count
+    }
+}
 
 pub fn evaluate_for_discrete(
     pattern: &LinkedProperty3D<Discrete>,
