@@ -1,6 +1,7 @@
 use anyhow::Result;
 
 //  //  //  //  //  //  //  //
+#[derive(Debug)]
 pub struct Property<T>
 where
     T: std::str::FromStr + std::fmt::Display,

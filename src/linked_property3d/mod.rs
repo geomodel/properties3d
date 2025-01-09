@@ -6,6 +6,7 @@ use crate::*;
 pub mod matching;
 
 //  //  //  //  //  //  //  //
+#[derive(Debug)]
 pub struct LinkedProperty3D<'a, T>
 where
     T: std::str::FromStr + std::fmt::Display,

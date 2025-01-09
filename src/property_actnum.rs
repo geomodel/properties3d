@@ -1,6 +1,7 @@
 use anyhow::Result;
 
 //  //  //  //  //  //  //  //
+#[derive(Debug)]
 pub struct ActnumProperty {
     data: Box<[bool]>,
 }

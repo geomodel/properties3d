@@ -3,6 +3,7 @@ use anyhow::Result;
 use io3d::types3d::IJK;
 
 //  //  //  //  //  //  //  //
+#[derive(Debug)]
 pub struct UpscdProperty<T>
 where
     T: std::str::FromStr,
