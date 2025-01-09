@@ -11,6 +11,9 @@ pub struct Evaluation {
 }
 impl Evaluation {
     pub fn w(&self) -> Continuous {
+        if self.count == 0. {
+            return 0.
+        }
         self.positive_count / self.count
     }
 }
