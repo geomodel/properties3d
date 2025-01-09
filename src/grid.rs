@@ -11,6 +11,9 @@ pub struct Grid {
 }
 
 impl Grid {
+    pub fn new_rc(i_max: usize, j_max: usize, k_max: usize) -> std::rc::Rc<Self> {
+        std::rc::Rc::new(Self::new(i_max, j_max, k_max))
+    }
     pub fn new(i_max: usize, j_max: usize, k_max: usize) -> Self {
         let ij_max = i_max * j_max;
         Self {
