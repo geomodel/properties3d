@@ -28,9 +28,9 @@ pub fn evaluate_for_discrete(
         positive_count: 0.,
     };
 
-    for i in 0..pattern.grid.get_i_max() {
-        for j in 0..pattern.grid.get_j_max() {
-            for k in 0..pattern.grid.get_k_max() {
+    for i in 0..pattern.grid.i_max() {
+        for j in 0..pattern.grid.j_max() {
+            for k in 0..pattern.grid.k_max() {
                 let pattern_coord = IJK { i, j, k };
                 let property_coord = pattern_coord + *position;
                 match (
@@ -65,12 +65,12 @@ mod mid_matching {
 
     #[test]
     fn check_none_2() {
-        let pattern_grid = Grid::new_rc(1, 2, 1);
+        let pattern_grid = FastGrid::new_rc(1, 2, 1);
         let pattern_array = [None, B];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(3, 3, 1);
+        let grid = FastGrid::new_rc(3, 3, 1);
         let array = [A, A, A, A, A, A, A, A, C];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -86,12 +86,12 @@ mod mid_matching {
     }
     #[test]
     fn check_none_1() {
-        let pattern_grid = Grid::new_rc(1, 2, 1);
+        let pattern_grid = FastGrid::new_rc(1, 2, 1);
         let pattern_array = [C, B];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(3, 3, 1);
+        let grid = FastGrid::new_rc(3, 3, 1);
         let array = [A, A, A, A, A, A, A, A, None];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -108,12 +108,12 @@ mod mid_matching {
 
     #[test]
     fn check_3() {
-        let pattern_grid = Grid::new_rc(1, 2, 1);
+        let pattern_grid = FastGrid::new_rc(1, 2, 1);
         let pattern_array = [C, B];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(3, 3, 1);
+        let grid = FastGrid::new_rc(3, 3, 1);
         let array = [A, A, A, A, A, A, A, A, C];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -130,12 +130,12 @@ mod mid_matching {
 
     #[test]
     fn check_2() {
-        let pattern_grid = Grid::new_rc(1, 2, 1);
+        let pattern_grid = FastGrid::new_rc(1, 2, 1);
         let pattern_array = [C, B];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(3, 3, 1);
+        let grid = FastGrid::new_rc(3, 3, 1);
         let array = [A, A, C, A, A, B, A, A, A];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -151,12 +151,12 @@ mod mid_matching {
     }
     #[test]
     fn check_1() {
-        let pattern_grid = Grid::new_rc(2, 1, 1);
+        let pattern_grid = FastGrid::new_rc(2, 1, 1);
         let pattern_array = [C, B];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(3, 3, 1);
+        let grid = FastGrid::new_rc(3, 3, 1);
         let array = [A, A, A, C, B, A, A, A, A];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -181,12 +181,12 @@ mod simple_matching {
 
     #[test]
     fn check_1_pattern_4() {
-        let pattern_grid = Grid::new_rc(1, 1, 1);
+        let pattern_grid = FastGrid::new_rc(1, 1, 1);
         let pattern_array = [O_2];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(3, 3, 1);
+        let grid = FastGrid::new_rc(3, 3, 1);
         let array = [O_1, O_1, O_1, O_2, O_1, O_1, O_1, O_1, O_1];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -202,12 +202,12 @@ mod simple_matching {
     }
     #[test]
     fn check_1_pattern_3() {
-        let pattern_grid = Grid::new_rc(1, 1, 1);
+        let pattern_grid = FastGrid::new_rc(1, 1, 1);
         let pattern_array = [O_2];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(2, 2, 2);
+        let grid = FastGrid::new_rc(2, 2, 2);
         let array = [O_1, O_1, O_2, O_1, O_1, O_1, O_1, O_1];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -223,12 +223,12 @@ mod simple_matching {
     }
     #[test]
     fn check_1_pattern_2() {
-        let pattern_grid = Grid::new_rc(1, 1, 1);
+        let pattern_grid = FastGrid::new_rc(1, 1, 1);
         let pattern_array = [O_2];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(2, 2, 2);
+        let grid = FastGrid::new_rc(2, 2, 2);
         let array = [O_1, O_1, O_1, O_1, O_1, O_1, O_1, O_2];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -244,12 +244,12 @@ mod simple_matching {
     }
     #[test]
     fn check_1_pattern_1() {
-        let pattern_grid = Grid::new_rc(1, 1, 1);
+        let pattern_grid = FastGrid::new_rc(1, 1, 1);
         let pattern_array = [O_2];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
 
-        let grid = Grid::new_rc(2, 2, 2);
+        let grid = FastGrid::new_rc(2, 2, 2);
         let array = [O_1, O_2, O_1, O_1, O_1, O_1, O_1, O_1];
         let data = Property::<Discrete>::from_data(array.into());
         let property = LinkedProperty3D::<Discrete>::from_property(data, grid);
@@ -266,7 +266,7 @@ mod simple_matching {
 
     #[test]
     fn check_itself_shift() {
-        let pattern_grid = Grid::new_rc(3, 3, 1);
+        let pattern_grid = FastGrid::new_rc(3, 3, 1);
         let pattern_array = [O_2, O_2, O_1, O_2, O_2, O_1, O_1, O_1, O_1];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);
@@ -282,7 +282,7 @@ mod simple_matching {
     }
     #[test]
     fn check_itself() {
-        let pattern_grid = Grid::new_rc(3, 3, 1);
+        let pattern_grid = FastGrid::new_rc(3, 3, 1);
         let pattern_array = [O_1, O_1, O_1, O_1, O_2, O_1, O_1, O_1, O_1];
         let pattern_data = Property::<Discrete>::from_data(pattern_array.into());
         let pattern = LinkedProperty3D::<Discrete>::from_property(pattern_data, pattern_grid);

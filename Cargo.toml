@@ -1,8 +1,9 @@
 [package]
 name = "properties3d"
-version = "0.2.0"
+version = "0.4.0"
 edition = "2021"
 
 [dependencies]
 anyhow = "1.0.93"
 io3d = { git = "https://github.com/geomodel/io3d.git" }
+grid3d = { git = "https://github.com/geomodel/grid3d.git" }

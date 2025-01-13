@@ -5,7 +5,7 @@ use properties3d::types3d::*;
 static U: &str = "-999";
 
 fn main() -> Result<()> {
-    let grid = Grid::new(2,2,2);
+    let grid = FastGrid::new(2,2,2);
 
     let src_file_name = r#"../../properties3d/assets/ijk.ascii"#;
     println!("loading 1..");
@@ -17,7 +17,7 @@ fn main() -> Result<()> {
     println!("loading 3..");
     let _bw = UpscdProperty::<Continuous>::from_file(bw_file_name)?;
 
-    for index in 0..grid.get_size() {
+    for index in 0..grid.size() {
         if let Some(v) = property[index] {
             property[index] = Some(v + 5);
         }
