@@ -5,7 +5,7 @@ use properties3d::types3d::*;
 static U: &str = "-999";
 
 fn main() -> Result<()> {
-    let grid = FastGrid::new(2,2,2);
+    let grid = LightGrid::new(2,2,2);
 
     let src_file_name = r#"../../properties3d/assets/ijk.ascii"#;
     println!("loading 1..");

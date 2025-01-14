@@ -56,7 +56,7 @@ mod read_write {
 
     #[test]
     fn check_1() -> Result<()> {
-        let grid = FastGrid::new_rc(3, 3, 1);
+        let grid = LightGrid::new_rc(3, 3, 1);
         let array = [None, A, A, A, B, A, A, A, A];
         let data = Property::<Discrete>::from_data(array.into());
         let mut property = LinkedProperty3D::<Discrete>::from_property(data, grid);
