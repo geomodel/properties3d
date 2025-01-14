@@ -4,7 +4,7 @@ use io3d::types3d::*;
 use super::LinkedProperty3D;
 
 //  //  //  //  //  //  //  //
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Copy, Clone)]
 pub struct Evaluation {
     pub count: Continuous,
     pub positive_count: Continuous,
